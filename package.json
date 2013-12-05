@@ -1,0 +1,11 @@
+{
+    "name": "NAME",
+    "version": "0.0.1",
+    "description": "DESC",
+    "dependencies": {
+        "socket.io": "latest",
+        "underscore": "latest",
+        "express": "latest",
+        "path": "~0.4.9",
+    }
+}
