@@ -2,15 +2,12 @@
 var     application_root    = __dirname,
         express             = require('express'),
         path                = require('path'), 
-        mongoose            = require('mongoose'),
         http                = require('http'),
         _                   = require('underscore'),
-        Schema              = mongoose.Schema;
-
-var app     = module.exports    
-            = express(), 
-    server  = http.createServer(app), 
-    io      = require('socket.io').listen(server);
+        app                 = module.exports    
+                            = express(), 
+        server              = http.createServer(app), 
+        io                  = require('socket.io').listen(server);
 
 
 // Uncomment to fall back to long polling ajax
@@ -26,7 +23,9 @@ io.configure(function () {
 app.configure(function() {
 
     //parses request body and populates request.body
-    app.use(express.bodyParser());
+    app.use(express.json());
+    app.use(express.urlencoded());
+
 
     //checks request.body for HTTP method overrides
     app.use(express.methodOverride());
